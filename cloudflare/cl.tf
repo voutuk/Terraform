@@ -1,4 +1,4 @@
-// terraform apply -var-file=secrets.tfvars
+// terraform apply -var-file=secrets.tfvars -auto-approve
 variable "cloud_api_key" {}
 
 terraform {

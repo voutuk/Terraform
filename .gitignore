@@ -13,7 +13,9 @@ override.tf.json
 .terraformrc
 terraform.rc
 
-#MY
-*.tfvars
+# MY
+#*.tfvars
+secrets.tfvars
+
 terraform.exe
 *.hcl
