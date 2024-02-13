@@ -1,3 +1,6 @@
+// terraform apply -var-file=secrets.tfvars
+variable "cloud_api_key" {}
+
 terraform {
   required_providers {
     cloudflare = {
@@ -8,7 +11,7 @@ terraform {
 }
 
 provider "cloudflare" {
-  api_token = "LaDFPET5DN8uWbBtjeCDikKmri2RjM2BCdc5ze0N"
+  api_token = var.cloud_api_key
 }
 
 data "cloudflare_zone" "this" {
@@ -25,9 +28,4 @@ resource "cloudflare_record" "foobar" {
 
 output "record" {
   value = cloudflare_record.foobar.hostname
-}
-
-output "metadata" {
-  value       = cloudflare_record.foobar.metadata
-  sensitive   = true
 }
