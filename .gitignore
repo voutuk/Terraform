@@ -16,6 +16,6 @@ terraform.rc
 # MY
 #*.tfvars
 secrets.tfvars
-
+*.pem
 terraform.exe
 *.hcl
