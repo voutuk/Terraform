@@ -1,6 +1,6 @@
 // terraform apply -var-file=secrets.tfvars -auto-approve
 // terraform destroy -var-file=secrets.tfvars -auto-approve
-// terraform init -var-file=secrets.tfvars
+// terraform init
 variable "aws_secret" {} //key
 variable "aws_acces" {} //key
 

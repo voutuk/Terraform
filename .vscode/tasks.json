@@ -1,0 +1,39 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Terraform INIT",
+            "type": "shell",
+            "command": "terraform init",
+            "options": {
+                "cwd": "${workspaceFolder}/site-up"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Terraform APPLY",
+            "type": "shell",
+            "command": "terraform apply -var-file='secrets.tfvars' -auto-approve",
+            "options": {
+                "cwd": "${workspaceFolder}/site-up"
+            },
+            "dependsOn": "Terraform INIT",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Terraform DESTROY",
+            "type": "shell",
+            "command": "terraform destroy -var-file='secrets.tfvars' -auto-approve",
+            "options": {
+                "cwd": "${workspaceFolder}/site-up"
+            },
+            "problemMatcher": []
+        }
+    ]
+}
