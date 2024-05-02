@@ -21,6 +21,7 @@ terraform {
 provider "aws" {
   access_key = var.aws_acces  //key
   secret_key = var.aws_secret //key
+  //profile    = "sso-session Terraform" //AWS SSO
   region     = "eu-north-1"
 }
 provider "cloudflare" {
@@ -40,6 +41,7 @@ resource "aws_instance" "AWS-3" {
   iam_instance_profile   = "BUBLIK-S3" //instance role
   vpc_security_group_ids = [aws_security_group.AWS-3.id]
   ebs_block_device {
+    encrypted = true
     device_name = "/dev/sda1"
     volume_size = 10
     volume_type = "standard"
